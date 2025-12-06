@@ -65,8 +65,8 @@ def scrollPg():
 
 #####
 #####
-search = input("Termino de busqueda:")
-#search = "botas"
+#search = input("Termino de busqueda:")
+search = "botas"
 #####
 #####
 
@@ -133,6 +133,7 @@ for j in range(0,61):
             driver.get(url_str)
         continue
 exit()
+
 
 
 
