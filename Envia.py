@@ -12,7 +12,8 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-chromedriver = "C:\\Users\\USER\\Desktop\\LIFEBOAT\\Desktop\\COMPUTER_STUFF\\SCRIPTS\\chromedriver.exe"
+#chromedriver = "C:\\Users\\USER\\Desktop\\LIFEBOAT\\Desktop\\COMPUTER_STUFF\\SCRIPTS\\chromedriver.exe"
+chromedriver = "C:\\Users\\Envia\\Documentos\\chromedriver.exe"
 
 s = Service(chromedriver)
 ua = UserAgent()
@@ -132,4 +133,5 @@ for j in range(0,61):
             driver.get(url_str)
         continue
 exit()
+
 
