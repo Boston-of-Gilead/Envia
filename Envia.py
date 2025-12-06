@@ -22,9 +22,6 @@ chrome_options.add_argument("--disable-infobars")
 chrome_options.add_argument("--auto-open-devtools-for-tabs")
 chrome_options.add_argument(f'user-agent={ua.random}')
 chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
-#Pass webdriver check
-#chrome_options.add_argument(f'user-agent={user_agent}')
-# chrome_options.add_argument("--kiosk")
 chrome_options.add_argument("--start-fullscreen")
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--incognito")
@@ -48,19 +45,12 @@ def retrieveData():
     phone = (driver.find_element(By.CSS_SELECTOR,"#page-section-detail-seller-info > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(7) > span:nth-child(2)")).text
     mail = (driver.find_element(By.CSS_SELECTOR,"#page-section-detail-seller-info > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(8) > span:nth-child(2)")).text
     sellerName = (driver.find_element(By.CSS_SELECTOR,"#seller-name")).text
-    # print(rURL)
-    # print(phone)
-    # print(mail)
-    print(sellerName)
-    # print(j)
 
 def outputData():
     #append
     print("Writing data")
-    #data = [rURL, phone, mail, sellerName,j]
     with open(filename, 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        #writer.writerows(data)
         writer.writerow([rURL, phone, mail, sellerName,j])
 
 def scrollPg():
@@ -74,8 +64,8 @@ def scrollPg():
 
 #####
 #####
-#search = input("Termino de busqueda:")
-search = "botas"
+search = input("Termino de busqueda:")
+#search = "botas"
 #####
 #####
 
@@ -142,3 +132,4 @@ for j in range(0,61):
             driver.get(url_str)
         continue
 exit()
+
