@@ -1,7 +1,6 @@
 import csv
 import os
 import re
-# import pyautogui
 import time
 from fake_useragent import UserAgent
 from selenium import webdriver
@@ -13,7 +12,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-chromedriver = "C:\\Users\\USER\\Desktop\\LIFEBOAT\\Desktop\\COMPUTER_STUFF\\SCRIPTS\\chromedriver.exe"
+chromedriver = "C:\\Users\\Envia\\Documents\\chromedriver.exe"
 
 s = Service(chromedriver)
 ua = UserAgent()
@@ -78,209 +77,6 @@ def processPg():
                 print("Back failed, going manually")
                 driver.get(url_str)
             continue
-    # match p:
-    #     case 1:
-    #         for j in range(0,61):
-    #             j = j + 1
-    #             print("On results pg " + driver.current_url)
-    #             time.sleep(2)
-    #             scrollPg()
-    #             try:
-    #                 driver.find_element(By.XPATH, "//img[@data-image-index="f'{j}'"]").click() #takes you to item page
-    #                 print(f"Going to item page for {j}")
-    #             except:
-    #                 print(driver.current_url)
-    #                 print(f"Did not find element {j}, staying on results page: {p}" + driver.current_url) #still on results page
-    #                 if p == 2:
-    #                     input("Press Enter to continue...")
-    #                 continue
-    #             try:
-    #                 print(f"On item page for {j}: " + driver.current_url)
-    #                 trigger = driver.find_element(By.ID,"sellerProfileTriggerId").click() #takes you to DSI page
-    #                 print(f"On/going to DSI page for {j}, passed trigger")
-    #                 time.sleep(1)
-    #                 retrieveData()
-    #                 print("Data retrieved")
-    #                 time.sleep(1)
-    #                 outputData()
-    #                 print("Data should now be output")
-    #                 driver.back() #back to item page
-    #                 print(f"Back to item pg {j}")
-    #                 time.sleep(1)
-    #                 driver.back() #back to results page
-    #                 print("Back to results pg")
-    #             except:
-    #                 print(f"Skipping due to failed trigger (meaning Dispatched by Amazon), still on item page for {j}: " + driver.current_url) #on item page, need to go back to results
-    #                 try:
-    #                     time.sleep(1)
-    #                     driver.find_element(By.TAG_NAME,'body').send_keys(Keys.ALT + Keys.LEFT_ARROW)
-    #                     time.sleep(1)
-    #                 except:
-    #                     print("Back failed, going manually")
-    #                     driver.get(url_str)
-    #                 continue
-    #     case 2:
-    #         for j in range(53,98):
-    #             j = j + 1
-    #             print("On results pg " + driver.current_url)
-    #             time.sleep(2)
-    #             scrollPg()
-    #             try:
-    #                 driver.find_element(By.XPATH, "//img[@data-image-index="f'{j}'"]").click() #takes you to item page
-    #                 print(f"Going to item page for {j}")
-    #             except:
-    #                 print(driver.current_url)
-    #                 print(f"Did not find element {j}, staying on results page: {p}" + driver.current_url) #still on results page
-    #                 if p == 2:
-    #                     input("Press Enter to continue...")
-    #                 continue
-    #             try:
-    #                 print(f"On item page for {j}: " + driver.current_url)
-    #                 trigger = driver.find_element(By.ID,"sellerProfileTriggerId").click() #takes you to DSI page
-    #                 print(f"On/going to DSI page for {j}, passed trigger")
-    #                 time.sleep(1)
-    #                 retrieveData()
-    #                 print("Data retrieved")
-    #                 time.sleep(1)
-    #                 outputData()
-    #                 print("Data should now be output")
-    #                 driver.back() #back to item page
-    #                 print(f"Back to item pg {j}")
-    #                 time.sleep(1)
-    #                 driver.back() #back to results page
-    #                 print("Back to results pg")
-    #             except:
-    #                 print(f"Skipping due to failed trigger (meaning Dispatched by Amazon), still on item page for {j}: " + driver.current_url) #on item page, need to go back to results
-    #                 try:
-    #                     time.sleep(1)
-    #                     driver.find_element(By.TAG_NAME,'body').send_keys(Keys.ALT + Keys.LEFT_ARROW)
-    #                     time.sleep(1)
-    #                 except:
-    #                     print("Back failed, going manually")
-    #                     driver.get(url_str)
-    #                 continue
-    #     case 3:
-    #         for j in range(101,146):
-    #             j = j + 1
-    #             print("On results pg " + driver.current_url)
-    #             time.sleep(2)
-    #             scrollPg()
-    #             try:
-    #                 driver.find_element(By.XPATH, "//img[@data-image-index="f'{j}'"]").click() #takes you to item page
-    #                 print(f"Going to item page for {j}")
-    #             except:
-    #                 print(driver.current_url)
-    #                 print(f"Did not find element {j}, staying on results page: {p}" + driver.current_url) #still on results page
-    #                 if p == 2:
-    #                     input("Press Enter to continue...")
-    #                 continue
-    #             try:
-    #                 print(f"On item page for {j}: " + driver.current_url)
-    #                 trigger = driver.find_element(By.ID,"sellerProfileTriggerId").click() #takes you to DSI page
-    #                 print(f"On/going to DSI page for {j}, passed trigger")
-    #                 time.sleep(1)
-    #                 retrieveData()
-    #                 print("Data retrieved")
-    #                 time.sleep(1)
-    #                 outputData()
-    #                 print("Data should now be output")
-    #                 driver.back() #back to item page
-    #                 print(f"Back to item pg {j}")
-    #                 time.sleep(1)
-    #                 driver.back() #back to results page
-    #                 print("Back to results pg")
-    #             except:
-    #                 print(f"Skipping due to failed trigger (meaning Dispatched by Amazon), still on item page for {j}: " + driver.current_url) #on item page, need to go back to results
-    #                 try:
-    #                     time.sleep(1)
-    #                     driver.find_element(By.TAG_NAME,'body').send_keys(Keys.ALT + Keys.LEFT_ARROW)
-    #                     time.sleep(1)
-    #                 except:
-    #                     print("Back failed, going manually")
-    #                     driver.get(url_str)
-    #                 continue
-    #     case 4:
-    #         for j in range(149,194):
-    #             j = j + 1
-    #             print("On results pg " + driver.current_url)
-    #             time.sleep(2)
-    #             scrollPg()
-    #             try:
-    #                 driver.find_element(By.XPATH, "//img[@data-image-index="f'{j}'"]").click() #takes you to item page
-    #                 print(f"Going to item page for {j}")
-    #             except:
-    #                 print(driver.current_url)
-    #                 print(f"Did not find element {j}, staying on results page: {p}" + driver.current_url) #still on results page
-    #                 if p == 2:
-    #                     input("Press Enter to continue...")
-    #                 continue
-    #             try:
-    #                 print(f"On item page for {j}: " + driver.current_url)
-    #                 trigger = driver.find_element(By.ID,"sellerProfileTriggerId").click() #takes you to DSI page
-    #                 print(f"On/going to DSI page for {j}, passed trigger")
-    #                 time.sleep(1)
-    #                 retrieveData()
-    #                 print("Data retrieved")
-    #                 time.sleep(1)
-    #                 outputData()
-    #                 print("Data should now be output")
-    #                 driver.back() #back to item page
-    #                 print(f"Back to item pg {j}")
-    #                 time.sleep(1)
-    #                 driver.back() #back to results page
-    #                 print("Back to results pg")
-    #             except:
-    #                 print(f"Skipping due to failed trigger (meaning Dispatched by Amazon), still on item page for {j}: " + driver.current_url) #on item page, need to go back to results
-    #                 try:
-    #                     time.sleep(1)
-    #                     driver.find_element(By.TAG_NAME,'body').send_keys(Keys.ALT + Keys.LEFT_ARROW)
-    #                     time.sleep(1)
-    #                 except:
-    #                     print("Back failed, going manually")
-    #                     driver.get(url_str)
-    #                 continue
-    #     case 5:
-    #         for j in range(197,242):
-    #             j = j + 1
-    #             print("On results pg " + driver.current_url)
-    #             time.sleep(2)
-    #             scrollPg()
-    #             try:
-    #                 driver.find_element(By.XPATH, "//img[@data-image-index="f'{j}'"]").click() #takes you to item page
-    #                 print(f"Going to item page for {j}")
-    #             except:
-    #                 print(driver.current_url)
-    #                 print(f"Did not find element {j}, staying on results page: {p} " + driver.current_url) #still on results page
-    #                 if p == 2:
-    #                     input("Press Enter to continue...")
-    #                 continue
-    #             try:
-    #                 print(f"On item page for {j}: " + driver.current_url)
-    #                 trigger = driver.find_element(By.ID,"sellerProfileTriggerId").click() #takes you to DSI page
-    #                 print(f"On/going to DSI page for {j}, passed trigger")
-    #                 time.sleep(1)
-    #                 retrieveData()
-    #                 print("Data retrieved")
-    #                 time.sleep(1)
-    #                 outputData()
-    #                 print("Data should now be output")
-    #                 driver.back() #back to item page
-    #                 print(f"Back to item pg {j}")
-    #                 time.sleep(1)
-    #                 driver.back() #back to results page
-    #                 print("Back to results pg")
-    #             except:
-    #                 print(f"Skipping due to failed trigger (meaning Dispatched by Amazon), still on item page for {j}: " + driver.current_url) #on item page, need to go back to results
-    #                 try:
-    #                     time.sleep(1)
-    #                     driver.find_element(By.TAG_NAME,'body').send_keys(Keys.ALT + Keys.LEFT_ARROW)
-    #                     time.sleep(1)
-    #                 except:
-    #                     print("Back failed, going manually")
-    #                     driver.get(url_str)
-    #                 continue
-        # case 6:
-        #     exit()
 
 def retrieveData():
     global rURL
@@ -346,52 +142,6 @@ p = 1
 #RESULTS PAGE
 #Data image index method - on results page
 processPg()
-# for j in range(0,61):
-#     j = j + 1
-#     print("On results pg " + driver.current_url)
-#     time.sleep(2)
-#     scrollPg()
-#     try:
-#         driver.find_element(By.XPATH, "//img[@data-image-index="f'{j}'"]").click() #takes you to item page
-#         print(f"Going to item page for {j}")
-#     except:
-#         print(driver.current_url)
-#         print(f"Did not find element {j}, staying on results page: " + driver.current_url) #still on results page
-#         continue
-#     try:
-#         print(f"On item page for {j}: " + driver.current_url)
-#         trigger = driver.find_element(By.ID,"sellerProfileTriggerId").click() #takes you to DSI page
-#         print(f"On/going to DSI page for {j}, passed trigger")
-#         time.sleep(1)
-#         retrieveData()
-#         print("Data retrieved")
-#         time.sleep(1)
-#         outputData()
-#         print("Data should now be output")
-#         driver.back() #back to item page
-#         print(f"Back to item pg {j}")
-#         time.sleep(1)
-#         driver.back() #back to results page
-#         print("Back to results pg")
-#     except:
-#         print(f"Skipping due to failed trigger (meaning Dispatched by Amazon), still on item page for {j}: " + driver.current_url) #on item page, need to go back to results
-#         try:
-#             time.sleep(1)
-#             driver.find_element(By.TAG_NAME,'body').send_keys(Keys.ALT + Keys.LEFT_ARROW)
-#             time.sleep(1)
-#         except:
-#             print("Back failed, going manually")
-#             driver.get(url_str)
-#         continue
-#exit()
-
-#https://www.amazon.es/-/en/s?k=botas&page=2&xpid=z54Yzi6Xb7aFI&crid=3FAMIX7GV5DUR&qid=1765472496&sprefix=bot%2Caps%2C747&ref=sr_pg_2
-
-#https://www.amazon.es/-/en/s?k=botas&page=2
-
-#/html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[69]/div/div/span/ul/li[3]/span/a
-#li.s-list-item-margin-right-adjustment:nth-child(4) > span:nth-child(1) > a:nth-child(1)
-#li.s-list-item-margin-right-adjustment:nth-child(3) > span:nth-child(1) > a:nth-child(1)
 
 print("LOOP")
 
@@ -405,3 +155,4 @@ for p in range(1,5):
     processPg()
     # input("Press Enter to continue...")
     # continue
+
